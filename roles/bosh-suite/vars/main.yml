@@ -1,0 +1,10 @@
+---
+# vars file for bosh-suite
+bosh_version: 5.4.0
+bosh_url: https://github.com/cloudfoundry/bosh-cli/releases/download/v{{bosh_version}}/bosh-cli-{{bosh_version}}-linux-amd64
+
+bbl_version: 6.10.54
+bbl_url: https://github.com/cloudfoundry/bosh-bootloader/releases/download/v{{bbl_version}}/bbl-v{{bbl_version}}_linux_x86-64
+
+credhub_version: 2.1.0
+credhub_url: https://github.com/cloudfoundry-incubator/credhub-cli/releases/download/{{credhub_version}}/credhub-linux-{{credhub_version}}.tgz

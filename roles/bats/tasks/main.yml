@@ -1,0 +1,15 @@
+---
+# tasks file for bats
+- fail: msg="Unsupported Codename"
+  when: codename not in _supported_codenames
+
+- name: Ensure PPA for {{ codename }} is added
+  apt_repository:
+    repo: ppa:duggan/bats
+    update_cache: yes
+    codename: "{{ codename }}"
+
+- name: Ensure BATS is installed
+  package:
+    name: bats
+    state: latest

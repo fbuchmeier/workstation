@@ -18,7 +18,7 @@ apt-get install -y \
     python-setuptools \
     python3-setuptools
 
-pip2 install -r requirements.txt
+pip2 install ansible
 
 log "Creating default ansible hosts"
 mkdir -p /etc/ansible

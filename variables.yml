@@ -5,17 +5,57 @@ override_ansible_distribution_release: "{% if ansible_distribution_release == 'l
 # Packages
 packages:
         os:
-                # Development
-                - git
-                - git-crypt
-               
-                - vim
-                # Virt
-
-                # OS
-                - htop
-                - ncdu
-                # Security
-                - keepassx
+        # Development
+        - git
+        - vim
+        # Virt
+        # OS
+        - htop
+        - ncdu
+        # Security
+        - keepassx
+        # YubiKey
+        - pcscd
+        - scdaemon
+        - pcsc-tools
+        # Utils
+        - curl 
+        - jq 
+        - unzip 
+        - openssh-client 
+        # Build Tools
+        - build-essential 
+        - zlibc 
+        - zlib1g-dev 
+        - ruby 
+        - ruby-dev 
+        - openssl 
+        - libxslt-dev 
+        - libxml2-dev 
+        - libssl-dev 
+        - libreadline7
+        - libreadline-dev
+        - libyaml-dev 
+        - libsqlite3-dev 
+        - sqlite3 
+        # Required for git-crypt
+        - gnupg2 
+        - gnupg-agent 
+        - git-crypt 
+        # Required for bats
+        - software-properties-common 
+        - dirmngr 
+        # OpenBSD NetCat required for BOSH SSH
+        - netcat-openbsd
+        # Python
+        - python3
+        - python3-dev
+        - python
+        - python-dev
         pip:
-                - boto3
+        - ansible
+        - docker
+        - boto3
+        - awscli
+        - awsume
+        - yq

@@ -6,8 +6,12 @@
   hosts: localhost
   become: true
   vars_files:
-        - variables.yml
+    - variables.yml
   roles:
-        - role: nextcloud-client
-          vars:
-                - codename: "{{ override_ansible_distribution_release }}"
+    - role: nextcloud-client
+      vars:
+        codename: "{{ override_ansible_distribution_release }}"
+    - role: bats
+      vars:
+        codename: "{{ override_ansible_distribution_release }}"
+    - role: bosh-suite

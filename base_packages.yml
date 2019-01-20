@@ -8,11 +8,11 @@
           - name: Ensure OS packages are installed
             package:
                     state: latest
-                    name: "{{ item }}"
-            with_items: "{{ packages.os }}"
+                    name: "{{ packages.os }}"
 
           - name: Ensure PIP packages are installed
             pip:
+                    executable: pip2
                     state: latest
                     name: "{{ packages.pip }}"
 

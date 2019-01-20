@@ -1,0 +1,10 @@
+---
+# vars file for bats
+_supported_codenames:
+  - xenial
+  - cosmic
+  - bionic
+  - artful
+  - zesty
+  - trusty
+  - yakkety

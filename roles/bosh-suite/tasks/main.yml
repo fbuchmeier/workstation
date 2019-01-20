@@ -1,0 +1,19 @@
+---
+# tasks file for bosh-suite
+- name: Ensure bosh-cli {{bosh_version}} is installed
+  get_url:
+    url: "{{bosh_url}}"
+    dest: /usr/local/bin/bosh
+    mode: 0755
+
+- name: Ensure credhub-cli {{credhub_version}} is installed
+  get_url:
+    url: "{{credhub_url}}"
+    dest: /usr/local/bin/credhub
+    mode: 0755
+
+- name: Ensure bosh bootloader {{bbl_version}} is installed
+  get_url:
+    url: "{{bbl_url}}"
+    dest: /usr/local/bin/bbl
+    mode: 0755

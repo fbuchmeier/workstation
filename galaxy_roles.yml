@@ -6,6 +6,8 @@
       - variables.yml
   roles:
     - role: gantsign.visual-studio-code
+      vars: 
+        users: "{{ vscode.users }}"
     - role: geerlingguy.docker
       vars:
         # Overrides for Linux Mint

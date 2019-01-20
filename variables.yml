@@ -1,0 +1,14 @@
+packages:
+        os:
+                # Development
+                - git
+                - git-crypt
+               
+                - vim
+                # Virt
+
+                # OS
+                - htop
+                - ncdu
+        pip:
+                - boto3

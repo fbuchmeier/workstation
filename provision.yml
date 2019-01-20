@@ -1,0 +1,26 @@
+#!/usr/bin/env ansible-playbook
+- hosts: localhost
+  become: true
+  vars_files:
+          - variables.yml
+  tasks:
+          - name: Ensure OS packages are installed
+            package:
+                    state: latest
+                    name: "{{ item }}"
+            with_items: "{{ packages.os }}"
+
+          - name: Ensure PIP packages are installed
+            pip:
+                    state: latest
+                    name: "{{ packages.pip }}"
+
+          - name: Ensure ansible-galaxy roles are installed
+            command: ansible-galaxy install -r requirements.yml
+            become: false
+
+- hosts: localhost
+  become: true
+  roles:
+          - role: gantsign.visual-studio-code
+  tasks: []

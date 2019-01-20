@@ -5,6 +5,8 @@
 - name: Install Packages using local Roles
   hosts: localhost
   become: true
+  vars_files:
+        - variables.yml
   roles:
         - role: nextcloud-client
           vars:

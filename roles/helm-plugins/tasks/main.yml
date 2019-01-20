@@ -1,0 +1,16 @@
+---
+# tasks file for helm-plugins
+- name: Ensure Plugin folder exists
+  become: false
+  file:
+    path: ~/.helm/plugins
+    state: directory
+
+- name: Ensure Helm Plugin {% for plugin in helm_plugins %}{{ plugin.name }} {% endfor %}is installed
+  command: helm plugin install {{ item.url }} --version {{ item.version }}
+  with_items: "{{ helm_plugins }}"
+  become: false
+  register: helm_cmd
+  # Plugin already exists
+  failed_when: helm_cmd.rc != 0 and 'plugin already exists' not in helm_cmd.stderr
+  changed_when: helm_cmd.rc == 0

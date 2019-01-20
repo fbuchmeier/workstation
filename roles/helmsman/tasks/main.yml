@@ -1,0 +1,8 @@
+---
+# tasks file for helmsman
+- name: Ensure helmsman {{ helmsman_version }} is installed
+  unarchive:
+    remote_src: yes
+    src: "{{ helmsman_url }}"
+    dest: /usr/local/bin/
+    mode: 0755

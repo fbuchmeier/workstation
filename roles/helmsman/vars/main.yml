@@ -1,0 +1,5 @@
+---
+# vars file for helmsman
+helmsman_system: "{{ ansible_system|lower}}"
+helmsman_version: 1.7.3-rc
+helmsman_url: https://github.com/Praqma/helmsman/releases/download/v{{ helmsman_version }}/Helmsman_{{ helmsman_version}}_{{ helmsman_system }}_amd64.tar.gz

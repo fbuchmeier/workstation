@@ -7,9 +7,10 @@
     mode: 0755
 
 - name: Ensure credhub-cli {{credhub_version}} is installed
-  get_url:
-    url: "{{credhub_url}}"
-    dest: /usr/local/bin/credhub
+  unarchive:
+    remote_src: yes
+    src: "{{credhub_url}}"
+    dest: /usr/local/bin/
     mode: 0755
 
 - name: Ensure bosh bootloader {{bbl_version}} is installed

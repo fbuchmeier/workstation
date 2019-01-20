@@ -1,17 +1,4 @@
 #!/usr/bin/env ansible-playbook
 - import_playbook: base_packages.yml
 - import_playbook: galaxy_roles.yml
-
-- name: Install Packages using local Roles
-  hosts: localhost
-  become: true
-  vars_files:
-    - variables.yml
-  roles:
-    - role: nextcloud-client
-      vars:
-        codename: "{{ override_ansible_distribution_release }}"
-    - role: bats
-      vars:
-        codename: "{{ override_ansible_distribution_release }}"
-    - role: bosh-suite
+- import_playbook: local_roles.yml

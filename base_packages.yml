@@ -10,9 +10,15 @@
                     state: latest
                     name: "{{ packages.os }}"
 
-          - name: Ensure PIP packages are installed
+          - name: Ensure PIP2 packages are installed
             pip:
                     executable: pip2
+                    state: latest
+                    name: "{{ packages.pip }}"
+                
+          - name: Ensure PIP packages are installed
+            pip:
+                    executable: pip
                     state: latest
                     name: "{{ packages.pip }}"
 

@@ -3,3 +3,5 @@
 - src: geerlingguy.docker
 - src: viasite-ansible.zsh
 - src: andrewrothstein.terraform
+- src: andrewrothstein.kubectl
+- src: andrewrothstein.kubernetes-helm

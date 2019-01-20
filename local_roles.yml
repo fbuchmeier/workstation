@@ -1,0 +1,16 @@
+#!/usr/bin/env ansible-playbook
+- name: Install Packages using local Roles
+  hosts: localhost
+  become: true
+  vars_files:
+    - variables.yml
+  roles:
+    - role: nextcloud-client
+      vars:
+        codename: "{{ override_ansible_distribution_release }}"
+    - role: bats
+      vars:
+        codename: "{{ override_ansible_distribution_release }}"
+    - role: bosh-suite
+    - role: helmsman
+    - role: helm-plugins

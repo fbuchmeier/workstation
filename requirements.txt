@@ -1,2 +1,5 @@
 # PIP Packages to install
 ansible
+docker
+boto3
+awscli

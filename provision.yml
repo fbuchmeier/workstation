@@ -1,26 +1,11 @@
 #!/usr/bin/env ansible-playbook
-- hosts: localhost
-  become: true
-  vars_files:
-          - variables.yml
-  tasks:
-          - name: Ensure OS packages are installed
-            package:
-                    state: latest
-                    name: "{{ item }}"
-            with_items: "{{ packages.os }}"
+- import_playbook: base_packages.yml
+- import_playbook: galaxy_roles.yml
 
-          - name: Ensure PIP packages are installed
-            pip:
-                    state: latest
-                    name: "{{ packages.pip }}"
-
-          - name: Ensure ansible-galaxy roles are installed
-            command: ansible-galaxy install -r requirements.yml
-            become: false
-
-- hosts: localhost
+- name: Install Packages using local Roles
+  hosts: localhost
   become: true
   roles:
-          - role: gantsign.visual-studio-code
-  tasks: []
+        - role: nextcloud-client
+          vars:
+                - codename: "{{ override_ansible_distribution_release }}"

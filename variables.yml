@@ -1,3 +1,8 @@
+# Override
+override_ansible_distribution: "{% if ansible_distribution == 'Linux Mint' %}Ubuntu{% else %}{{ansible_distribution}}{% endif %}"
+override_ansible_distribution_release: "{% if ansible_distribution_release == 'linuxmint' %}bionic{% else %}{{ansible_distribution_release}}{% endif %}"
+
+# Packages
 packages:
         os:
                 # Development
@@ -10,5 +15,7 @@ packages:
                 # OS
                 - htop
                 - ncdu
+                # Security
+                - keepassx
         pip:
                 - boto3

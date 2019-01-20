@@ -1,0 +1,15 @@
+---
+# tasks file for nextcloud-client
+- fail: msg="Unsupported Codename"
+  when: codename not in _supported_codenames
+
+- name: Ensure PPA for {{ codename }} is added
+  apt_repository:
+    repo: ppa:nextcloud-devs/client
+    update_cache: yes
+    codename: "{{ codename }}"
+
+- name: Ensure Nextcloud Client is installed
+  package:
+    name: nextcloud-client
+    state: latest

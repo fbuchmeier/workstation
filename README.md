@@ -1,5 +1,5 @@
 # workstation
-Configure a DevOps Workstation based on Ubuntu using Ansible
+Configure a DevOps Workstation based on Linux Mint (Ubuntu 18.04 Bionic) using Ansible
 
 ## Usage
 
